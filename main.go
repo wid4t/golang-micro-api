@@ -5,6 +5,8 @@ import (
 	"fmt"
 	pb "golang-micro-api/proto"
 
+	_ "github.com/go-micro/plugins/v4/registry/kubernetes"
+
 	"go-micro.dev/v4"
 	"go-micro.dev/v4/logger"
 )
