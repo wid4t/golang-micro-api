@@ -15,10 +15,12 @@ var (
 )
 
 func main() {
+
 	service := micro.NewService(
 		micro.Name(serviceName),
 		micro.Version(version),
 	)
+
 	service.Init()
 
 	client := pb.NewGolangMicroProductService("golang-micro-product", service.Client())
