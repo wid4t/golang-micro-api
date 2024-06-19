@@ -2,30 +2,30 @@ GOPATH:=$(shell go env GOPATH)
 
 .PHONY: init
 init:
-        @go get -u google.golang.org/protobuf/proto
-        @go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
-        @go install github.com/go-micro/generator/cmd/protoc-gen-micro@latest
+	@go get -u google.golang.org/protobuf/proto
+	@go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+	@go install github.com/go-micro/generator/cmd/protoc-gen-micro@latest
 
 .PHONY: proto
 proto:
-        @protoc --proto_path=. --micro_out=. --go_out=:. proto/golang-micro-product.proto
+	@protoc --proto_path=. --micro_out=. --go_out=:. proto/golang-micro-api.proto
 
 .PHONY: update
 update:
-        @go get -u
+	@go get -u
 
 .PHONY: tidy
 tidy:
-        @go mod tidy
+	@go mod tidy
 
 .PHONY: build
 build:
-        @go build -o golang-micro-api *.go
+	@go build -o golang-micro-api *.go
 
 .PHONY: test
 test:
-        @go test -v ./... -cover
+	@go test -v ./... -cover
 
 .PHONY: docker
 docker:
-        @docker build -t golang-micro-api:latest .
+	@docker build -t golang-micro-api:latest .
