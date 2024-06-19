@@ -8,7 +8,7 @@ init:
 
 .PHONY: proto
 proto:
-	@protoc --proto_path=. --micro_out=. --go_out=:. proto/golang-micro-api.proto
+	@protoc --proto_path=. --micro_out=. --go_out=:. proto/golang-micro-product.proto
 
 .PHONY: update
 update:
